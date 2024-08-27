@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro</title>
-</head>
-<body>
+  </head>
+  <body>
     <h2>Formulario de registro</h2>
     <form action="registro.php" method="post">
+      Nombre:
+      <input type="text" name="nombres" id="nombres" /><br />
+      Apellidos:
+      <input type="text" name="apellidos" id="apellidos" /><br />
 
-        Nombre:
-        <input type="text" name="nombres" id="nombres" ><br>
-        Apellidos:
-        <input type="text" name="apellidos" id="apellidos" ><br>
-        
-        
-        Correo:
-        <input type="email" name="email" id="email"><br>
-        Contrasenia:
-        <input type="password" name="password" id="password"><br>
-        Confirmar contrasenia:
-        <input type="password" name="confirmarPassword" id="confirmarPassword"><br>
+      Correo:
+      <input type="text" name="email" id="email" /><br />
+      Contrasenia:
+      <input type="password" name="password" id="password" /><br />
+      Confirmar contrasenia:
+      <input
+        type="password"
+        name="confirmarPassword"
+        id="confirmarPassword"
+      /><br />
 
-        genero:
-        <select name="genero" id="genero">
-            <option value=""></option>
-            <option value="maculino">Masculino</option>
-            <option value="femenino">Femenino</option>
-        </select><br>
+      genero:
+      <select name="genero" id="genero">
+        <option value=""></option>
+        <option value="maculino">Masculino</option>
+        <option value="femenino">Femenino</option></select
+      ><br />
 
-        Curso de interes:
-        <select name="curso" id="curso">
-            <option value="">selecione su curso</option>
-            <option value="php">PHP</option>
-            <option value="python">Pyton</option>
-            <option value="javascript">JavaScript</option>
-            <option value="larabel">Laravel</option>
-            <option value="java">Java</option>
-            <option value="basededatos">Base de datos</option>
-            <option value="otros">Otros</option>
-        </select><br>
+      Curso de interes:
+      <select name="curso" id="curso">
+        <option value="">selecione su curso</option>
+        <option value="php">PHP</option>
+        <option value="python">Pyton</option>
+        <option value="javascript">JavaScript</option>
+        <option value="larabel">Laravel</option>
+        <option value="java">Java</option>
+        <option value="basededatos">Base de datos</option>
+        <option value="otros">Otros</option></select
+      ><br />
 
-        <button type="submit">Resgistro</button>
+      <button type="submit">Resgistro</button>
     </form>
-    
-</body>
+  </body>
 </html>
