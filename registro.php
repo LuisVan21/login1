@@ -1,10 +1,20 @@
 <?php 
   
+  include("conexion.php");
+
+  
 
   if($_SERVER["REQUEST_METHOD"]==="POST"){
     $dato=$_POST;
+    echo '<pre>', var_dump($dato), '</pre>';
 
-  echo '<pre>', var_dump($dato), '</pre>';
+    $sql=" INSERT INTO `usuarios` (`id`, `nombres`, `apellidos`, `email`, `password`, `genero`, `curso`) 
+        VALUES (NULL, 'Pepe', 'Aguilar', 'aguilar@ejemplo.com', '12345', 'Hombre', 'php');";
+
+        $rst= $pdo->prepare($sql);
+        $rst->execute();
+
+  
   }
 
   $nombre = (isset($_POST["nombres"]))? $_POST["nombres"]:null;
