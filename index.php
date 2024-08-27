@@ -8,9 +8,11 @@
 <body>
 
     <a href="https://cursos.develoteca.com">Plataforma Educativa</a>
-    <a href="https://www.youtube.com/develoteca"></a>
-    <a href="cerrar.php"></a>
-
+    |
+    <a href="https://www.youtube.com/develoteca">YouTube</a>
+    |
+    <a href="cerrar.php">Cerrar</a>
+    <br/>
     <h2>Inicio de la aplicacion</h2>
     <p>este es el inicio de la aplicacion</p>
     
