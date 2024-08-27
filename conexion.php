@@ -14,5 +14,7 @@
     }catch(PDOException $e){
         echo "hubo un error de conexion" . $e->getMessage();
     };
+
+    //$pdo->close();
   
 ?>
