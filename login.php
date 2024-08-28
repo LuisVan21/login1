@@ -21,14 +21,16 @@
 
         foreach($usuarios as $user){
             /*
-                if(password_verify($password,$user["password"])){
+                 if($password ===$user["password"]){
+            $login= true;
+            }*/
+
+            //confirmacion de un password encriptado
+            if(password_verify($password,$user["password"])){
                 $login= true;
             }
-            */
 
-            if($password ===$user["password"]){
-            $login= true;
-            }
+           
         }
 
         if($login){
@@ -39,7 +41,7 @@
 
         echo $login;
 
-        echo '<pre>', var_dump($login), '</pre>';
+        //echo '<pre>', var_dump($login), '</pre>';
 
     }
 

@@ -49,6 +49,10 @@
      //echo '<pre>', var_dump($error), '</pre>';
 
       if (empty($error)){
+
+        // encriptacion de un password
+        $nuevoPassword =password_hash($password, PASSWORD_DEFAULT);
+
          $sql=" INSERT INTO `usuarios` (`id`, `nombres`, `apellidos`, `email`, `password`, `genero`, `curso`) 
         VALUES (NULL, :nombres, :apellidos, :email, :password, :genero, :curso);";
 
@@ -57,7 +61,7 @@
           ':nombres'=>$nombre,
           ':apellidos'=>$apellido,
           ':email'=>$email,
-          'password'=>$password,
+          ':password'=>$nuevoPassword,
           ':genero'=>$genero,
           ':curso'=>$curso
         ));
