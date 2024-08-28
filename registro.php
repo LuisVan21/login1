@@ -28,6 +28,12 @@
         echo $error['genero']="debe selecionar genero <br/>";}
     if (empty($curso)){
         echo $error['curso']="debe ingresar el curso <br/>";}
+    if(empty($email)){
+        echo $error['email']="correo es obligatorio <br/>";
+        }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+          echo $error['email']="formato incorrecto <br/>";}
+
+     echo '<pre>', var_dump($error), '</pre>';
 
       if (empty($error)){
          $sql=" INSERT INTO `usuarios` (`id`, `nombres`, `apellidos`, `email`, `password`, `genero`, `curso`) 
@@ -46,9 +52,8 @@
          
         echo $email;
         
+      }
   }
-
-     }
    
   
   
