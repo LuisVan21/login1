@@ -33,6 +33,15 @@
         }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
           echo $error['email']="formato incorrecto <br/>";}
 
+    if (empty($password)){
+        echo $error['password']="la contrasenia es obligatoria <br/>";
+      }
+    if(empty($confirmarPassword)){
+        echo $error['confirmarPassword']="confirma la contrasenia <br/>";
+        }elseif($password != $confirmarPassword){
+          echo $error['confirmarPassword']="las contrasenias no coinciden <br/>";
+        }
+
      echo '<pre>', var_dump($error), '</pre>';
 
       if (empty($error)){
