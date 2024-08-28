@@ -1,4 +1,6 @@
 <?php 
+
+session_start();
   
     if($_SERVER['REQUEST_METHOD']==="POST"){
 
@@ -34,13 +36,12 @@
 
             // se busca password en la BD
             foreach($usuarios as $user){
-                /*
-                    if($password ===$user["password"]){
-                $login= true;"
-                }*/
 
                 //confirmacion de un password encriptado
                 if(password_verify($password,$user["password"])){
+                    $_SESSION["usuario_id"]=$user["id"];
+                    $_SESSION["usuario_nombre"]=$user["nombres"];
+                     $_SESSION["usuario_apellido"]=$user["apellidos"];
                     $login= true;
                     }
                 }

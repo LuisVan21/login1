@@ -1,3 +1,16 @@
+<?php 
+
+    session_start();
+    if(!isset($_SESSION["usuario_id"])){
+        header("Location:logion.html");
+        exiit();
+    }
+
+    echo '<pre>', var_dump($_SESSION), '</pre>';
+  
+  ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +27,7 @@
     <a href="cerrar.php">Cerrar</a>
     <br/>
     <h2>Inicio de la aplicacion</h2>
+    <p>bienvenid@ <?php echo $_SESSION["usuario_nombre"]." ".$_SESSION["usuario_apellido"]; ?></p>
     <p>este es el inicio de la aplicacion</p>
     
 </body>
