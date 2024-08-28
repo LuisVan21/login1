@@ -5,44 +5,57 @@
         include("conexion.php");
 
         //echo '<pre>', var_dump($_POST), '</pre>';
+        
 
+        // se toman valores a verificar
         $email=(isset($_POST['email']))?htmlspecialchars($_POST['email']):NULL;
         $password=(isset($_POST['password']))?$_POST['password']: NULL;
 
+            $error=[];
+        // Validacion de datos
+            if(empty($email)){
+            $error['email']="correo es obligatorio <br/>";
+            }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $error['email']="formato incorrecto <br/>";}
 
-        $sql= "SELECT * FROM `usuarios` WHERE email=:email ";
-        $sentencia= $pdo->prepare($sql); 
+            if (empty($password)){
+            $error['password']="la contrasenia es obligatoria <br/>";}
 
-        $sentencia->execute(['email'=>$email]);
+            if (empty($error)){
 
-        $usuarios=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+            $sql= "SELECT * FROM `usuarios` WHERE email=:email ";
+            $sentencia= $pdo->prepare($sql); 
 
-        $login= false;
+            $sentencia->execute(['email'=>$email]);
 
-        foreach($usuarios as $user){
-            /*
-                 if($password ===$user["password"]){
-            $login= true;
-            }*/
+            $usuarios=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
-            //confirmacion de un password encriptado
-            if(password_verify($password,$user["password"])){
-                $login= true;
-            }
+            $login= false;
 
-           
-        }
+            // se busca password en la BD
+            foreach($usuarios as $user){
+                /*
+                    if($password ===$user["password"]){
+                $login= true;"
+                }*/
 
-        if($login){
-            echo "Existe en DB";
+                //confirmacion de un password encriptado
+                if(password_verify($password,$user["password"])){
+                    $login= true;
+                    }
+                }
+            
+                if($login){
+                    echo "Existe usuario en DB";
+                    header("Location:index.php");
+                }else{
+                    echo "no existe usuario en DB";
+                }
         }else{
-            echo "no existe en DB";
+             foreach($error as $errores){
+                        echo $errores;
+                    }
         }
-
-        echo $login;
-
-        //echo '<pre>', var_dump($login), '</pre>';
-
-    }
-
+                echo "<br/> <a href='login.html'>Regresa al login</a>";
+    } 
   ?>
