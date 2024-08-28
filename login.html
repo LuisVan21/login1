@@ -22,7 +22,64 @@
         <header>
             <!-- place navbar here -->
         </header>
-        <main></main>
+        <main>
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg4">
+                        <div class="card">
+                            <div class="card-header">Login</div>
+                            
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Email</label>
+                                        <form action="login.php" method="POST">
+                                                <input
+                                                    type="email"
+                                                    class="form-control"
+                                                    name="email"
+                                                    id="email"
+                                                    aria-describedby="emailHelpId"
+                                                    placeholder="abc@mail.com"
+                                                    required
+                                                />
+                                        
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Password</label>
+                                            <input
+                                                type="password"
+                                                class="form-control"
+                                                name="password"
+                                                id="password"
+                                                placeholder=""
+                                                required
+                                            />
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <a href="registro.html" type="submit" class="btn btn-secondary">Don't have an account? Sign up</a>
+                                        
+                                    </form>
+                                    
+                                </div>
+                                
+
+                                <!-- <form action="login.php" method="post">
+                                    Correo:
+                                    <input type="text" name="email"><br/><br/>
+                                    password:
+                                    <input type="password" name="password" id=""><br><br>
+                                    <button >Send</button> -->
+                                </form>
+                            </div>
+                            <div class="card-footer"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            
+        </main>
         <footer>
             <!-- place footer here -->
         </footer>
@@ -41,23 +98,4 @@
     </body>
 </html>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loging</title>
-</head>
-<body>
-
-    <form action="login.php" method="post">
-        Correo:
-        <input type="text" name="email"><br/><br/>
-        password:
-        <input type="password" name="password" id=""><br><br>
-        <input type="submit" value="iniciar sesion">
-    </form>
-    
-</body>
-</html>
+<!-- ********************************************************************************** -->
