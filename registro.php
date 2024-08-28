@@ -17,32 +17,36 @@
       $curso= (isset($_POST["curso"]))? $_POST["curso"]:null;
 
       $dato=$_POST;
-      echo '<pre>', var_dump($error), '</pre>';
+      //echo '<pre>', var_dump($error), '</pre>';
 
       if (empty($nombre)){
-      echo $error['nombres']="debe ingresar el nombre <br/>";}
+         $error['nombres']="debe ingresar el nombre <br/>";}
     if (empty($apellido)){
-        echo $error['apellidos']="debe ingresar el apellido <br/>";}
+        $error['apellidos']="debe ingresar el apellido <br/>";}
 
     if (empty($genero)){
-        echo $error['genero']="debe selecionar genero <br/>";}
+        $error['genero']="debe selecionar genero <br/>";}
     if (empty($curso)){
-        echo $error['curso']="debe ingresar el curso <br/>";}
+        $error['curso']="debe ingresar el curso <br/>";}
     if(empty($email)){
-        echo $error['email']="correo es obligatorio <br/>";
+        $error['email']="correo es obligatorio <br/>";
         }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-          echo $error['email']="formato incorrecto <br/>";}
+          $error['email']="formato incorrecto <br/>";}
 
     if (empty($password)){
-        echo $error['password']="la contrasenia es obligatoria <br/>";
+        $error['password']="la contrasenia es obligatoria <br/>";
       }
     if(empty($confirmarPassword)){
-        echo $error['confirmarPassword']="confirma la contrasenia <br/>";
+        $error['confirmarPassword']="confirma la contrasenia <br/>";
         }elseif($password != $confirmarPassword){
-          echo $error['confirmarPassword']="las contrasenias no coinciden <br/>";
+        $error['confirmarPassword']="las contrasenias no coinciden <br/>";
         }
 
-     echo '<pre>', var_dump($error), '</pre>';
+        foreach($error as $errores){
+          echo $errores ."<br/>";
+        }
+
+     //echo '<pre>', var_dump($error), '</pre>';
 
       if (empty($error)){
          $sql=" INSERT INTO `usuarios` (`id`, `nombres`, `apellidos`, `email`, `password`, `genero`, `curso`) 
@@ -57,10 +61,12 @@
           ':genero'=>$genero,
           ':curso'=>$curso
         ));
-        echo '<pre>', var_dump($error), '</pre>';
-         
-        echo $email;
         
+        header("Location:login.html") ;
+        
+        
+      }else{
+        echo "<a href='registro.html'>Regresa al formulario de registro</a>";
       }
   }
    
