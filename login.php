@@ -18,7 +18,7 @@ session_start();
             if(empty($email)){
             $error['email']="correo es obligatorio <br/>";
             }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $error['email']="formato incorrecto <br/>";}
+            $error['email']="contrasenia incorrecta <br/>";}
 
             if (empty($password)){
             $error['password']="la contrasenia es obligatoria <br/>";}
